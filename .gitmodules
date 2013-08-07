@@ -1,0 +1,3 @@
+[submodule "jni/ec-plates"]
+	path = jni/ec-plates
+	url = git@github.com:mWater/ec-plates.git
