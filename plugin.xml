@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+      id="co.mwater.opencvactivityplugin"
+      version="3.0.0">
+    <name>OpenCV Plugin</name>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="OpenCVActivity">
+                <param name="android-package" value="co.mwater.opencvactivity.OpenCVActivityPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+          <activity
+             android:name="co.mwater.opencvactivity.OpenCVActivity"
+             android:configChanges="keyboardHidden|keyboard|screenSize|locale"
+             android:theme="@android:style/Theme.NoTitleBar"
+             android:label="OpenCV">
+          </activity>
+        </config-file>
+
+        <source-file src="src/android/OpenCVActivity.java" target-dir="src/co/mwater/opencvactivity" />
+        <source-file src="src/android/OpenCVActivityPlugin.java" target-dir="src/co/mwater/opencvactivity" />
+        <source-file src="libs/armeabi/libopencvactivity.so" target-dir="libs/armeabi" />
+        <source-file src="libs/armeabi-v7a/libopencvactivity.so" target-dir="libs/armeabi-v7a" />
+
+        <js-module src="www/OpenCVActivity.js" name="OpenCVActivity">
+            <clobbers target="OpenCVActivity" />
+        </js-module>
+     </platform>
+</plugin>
